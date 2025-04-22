@@ -1,0 +1,109 @@
+body {
+    background-color: #fffaf0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  .container {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .anh {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    margin-bottom: 12px;
+  }
+  
+  h1 {
+    color: #b91c1c;
+  }
+  
+  h3 {
+    margin-top: 16px;
+    color: #b91c1c;
+  }
+  
+  .contact {
+    background-color: #fef3c7;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  fieldset {
+    background-color: #fef3c7;
+    border-radius: 8px;
+    padding: 16px;
+    border: none;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  legend {
+    color: #b91c1c;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .nut {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background-color 0.3s;
+  }
+  
+  .nut:hover {
+    background-color: #b91c1c;
+  }
+  
+  iframe {
+    margin-top: 20px;
+    border-radius: 8px;
+    height: 300px;
+    width: 100%;
+    border: none;
+  }
+  
+  footer {
+    background-color: #fef3c7;
+    padding: 16px;
+    margin-top: 32px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    color: #444;
+  }
+  
+  footer a {
+    color: #b91c1c;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
