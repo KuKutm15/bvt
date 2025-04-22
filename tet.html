@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tet.css">
+    <title>Document</title>
+</head>
+<body>
+    <header class="page-header"><div class="panel wrapper"><div class="panel header"><a class="action skip contentarea" href="#contentarea">
+        <span>
+            Skip to Content    </span>
+    </a>
+            <div class="switcher language switcher-language" data-ui-id="language-switcher" id="switcher-language">
+            <strong class="label switcher-label"><span>Language</span></strong>
+            <div class="actions options switcher-options">
+                <div class="switcher-current" id="switcher-language-trigger">
+                    <strong class="view-default">
+                        <span>VN</span>
+                    </strong>
+                </div>
+                <div class="switcher-list">
+                                                                <div class="view-en switcher-option">
+                                <a href="https://jollibee.com.vn/stores/store/redirect/___store/en/___from_store/default/uenc/aHR0cHM6Ly9qb2xsaWJlZS5jb20udm4vP19fX3N0b3JlPWVu/">
+                                    EN                            </a>
+                            </div>
+                                                                                        </div>
+            </div>
+        </div>
+    
+    <!-- ko scope: 'location_switcher' -->
+    <div class="switcher location location__switcher js-location-popup">
+        <i class="fas fa-map-marker-alt"></i>
+        <!-- ko if: selectedLocation()  -->
+        <span class="location__text" data-bind="text: selectedLocation()">Hồ Chí Minh</span>
+        <!-- /ko -->
+        <!-- ko ifnot: selectedLocation()  --><!-- /ko -->
+    
+        <div class="location__popup jollibee-popup" style="display: none">
+            <form action="#" class="location__form" method="post" autocomplete="off" onsubmit="handleFormSubmit()" novalidate="novalidate">
+                <div class="popup--top">
+                    <div class="popup__header">
+                        <img src="https://jollibee.com.vn/static/version1742310603/frontend/Jollibee/default/vi_VN/images/logo.png" title="Logo Jollibee" alt="Logo Jollibee" width="100" height="100">
+                        <h2>Vui lòng chọn tỉnh thành</h2>
+                    </div>
+                    <div class="popup__selector">
+                        <select data-bind="options: location_provinces,
+                                optionsText: 'name',
+                                optionsValue: 'id',
+                                optionsCaption: 'Chọn tỉnh thành',
+                                value: selectedProvince,
+                                attr: {id: 'province-selector', name: 'province-selector', class: 'filter province-selector'}" data-validate="{required:true}" id="province-selector" name="province-selector" class="filter province-selector"><option value="">Chọn tỉnh thành</option><option value="1">Hồ Chí Minh</option><option value="2">Hà Nội</option><option value="30">An Giang</option><option value="10">Bà Rịa - Vũng Tàu</option><option value="28">Bắc Giang</option><option value="55">Bạc Liêu</option><option value="17">Bắc Ninh</option><option value="37">Bến Tre</option><option value="4">Bình Dương</option><option value="25">Bình Định</option><option value="23">Bình Phước</option><option value="39">Cà Mau</option><option value="12">Cần Thơ</option><option value="3">Đà Nẵng</option><option value="11">Đắk Lắk</option><option value="58">Điện Biên</option><option value="5">Đồng Nai</option><option value="47">Đồng Tháp</option><option value="22">Gia Lai</option><option value="45">Hà Nam</option><option value="46">Hà Tĩnh</option><option value="21">Hải Dương</option><option value="7">Hải Phòng</option><option value="24">Hưng Yên</option><option value="6">Khánh Hòa</option><option value="16">Kiên Giang</option><option value="49">Kon Tum</option><option value="14">Lâm Đồng</option><option value="8">Long An</option><option value="35">Nam Định</option><option value="20">Nghệ An</option><option value="41">Ninh Bình</option><option value="43">Ninh Thuận</option><option value="42">Phú Thọ</option><option value="44">Phú Yên</option><option value="50">Quảng Bình</option><option value="9">Quảng Nam</option><option value="36">Quảng Ngãi</option><option value="18">Quảng Ninh</option><option value="51">Quảng Trị</option><option value="48">Sóc Trăng</option><option value="32">Tây Ninh</option><option value="27">Thái Bình</option><option value="33">Thái Nguyên</option><option value="19">Thanh Hóa</option><option value="15">Thừa Thiên Huế</option><option value="26">Tiền Giang</option><option value="52">Trà Vinh</option><option value="57">Tuyên Quang</option><option value="40">Vĩnh Long</option><option value="31">Vĩnh Phúc</option><option value="56">Yên Bái</option></select>
+                        <select data-bind="options: districtFilterOptionsArr,
+                                optionsText: 'name',
+                                optionsValue: 'id',
+                                optionsCaption: 'Chọn quận huyện',
+                                value: selectedDistrict,
+                                attr: {id: 'district-selector', name: 'district-selector', class: 'filter district-selector'}" data-validate="{required:true}" id="district-selector" name="district-selector" class="filter district-selector"><option value="">Chọn quận huyện</option><option value="1">Bình Chánh</option><option value="2">Bình Tân</option><option value="3">Bình Thạnh</option><option value="4">Cần Giờ</option><option value="5">Củ Chi</option><option value="6">Gò Vấp</option><option value="7">Hóc Môn</option><option value="8">Nhà Bè</option><option value="9">Phú Nhuận</option><option value="10">Quận 1</option><option value="11">Quận 10</option><option value="12">Quận 11</option><option value="13">Quận 12</option><option value="14">Quận 2</option><option value="15">Quận 3</option><option value="16">Quận 4</option><option value="17">Quận 5</option><option value="18">Quận 6</option><option value="19">Quận 7</option><option value="20">Quận 8</option><option value="21">Quận 9</option><option value="22">Tân Bình</option><option value="23">Tân Phú</option><option value="24">Thủ Đức</option></select>
+                    </div>
+                </div>
+                <div class="popup--bottom">
+                    <div class="popup__action">
+                        <p>Đơn hàng tối thiểu: <span class="amount">60,000 ₫</span></p>
+                        <button type="submit" class="action primary">Xác nhận</button>
+                        <p>*Chúng tôi chưa phục vụ giao hàng tận nơi tại những khu vực nằm ngoài danh sách trên, mong Quý khách thông cảm</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /ko -->
+    
+    
+    <!-- ko scope: 'location_switcher' -->
+    <script>
+        function handleFormSubmit() {
+            var selectionProvince = document.getElementById('province-selector');
+            var indexProvince = selectionProvince.selectedIndex;
+            var selectionDistrict = document.getElementById('district-selector');
+            var indexDistrict = selectionDistrict.selectedIndex;
+                        smartech('dispatch', 'Select Location', {
+                    'city': selectionProvince.options[indexProvince].text,
+                    'district': selectionDistrict.options[indexDistrict].text,
+                });
+                }
+    </script>
+    <!-- /ko -->
+    
+    <script>
+        window.location.quoteId = '';
+    </script>
+    <ul class="header links">    <li class="customer-icon">
+            <a href="#social-login-popup" class="social-login-btn" data-effect="mfp-move-from-top"><span class="icon"></span></a>
+        </li>
+    <li><a href="https://jollibee.com.vn/customer/account/create/" id="idtkBvQ6vc">Đăng ký</a></li><li class="authorization-link" data-label="or">
+        <a href="#social-login-popup" class="social-login-btn" data-effect="mfp-move-from-top">
+            Đăng nhập    </a>
+    </li>
+    </ul></div></div><div class="header content"><div class="column column-left"><div class="toggle-header">
+        <span data-action="toggle-nav" class="action nav-toggle"><span>Toggle Nav</span></span>
+    </div>
+    <div class="logo-header">
+        <a class="logo" href="https://jollibee.com.vn/" title="Logo Jollibee" aria-label="store logo">
+            <img src="https://jollibee.com.vn/static/version1742310603/frontend/Jollibee/default/vi_VN/images/logo.png" title="Logo Jollibee" alt="Logo Jollibee" width="100" height="100">
+        </a>
+    </div>
+    <script>
+        require(['jquery'], function($) {
+            $(document).mouseup(function(e) 
+            {
+                var container = $(".nav-sections-top-items");
+                var button = $(".action.nav-toggle");
+                // if the target of the click isn't the container nor a descendant of the container
+                if (!container.is(e.target) && container.has(e.target).length === 0) 
+                {
+                    if($("html").hasClass("nav-open")) {
+                        $("html").removeClass("nav-before-open nav-open");
+                    }
+                }
+            });
+        });
+    </script></div><div class="column column-mid">    <div class="sections nav-sections-top">
+                    <div class="section-items nav-sections-top-items" role="tablist">
+                                                <div class="section-item-title nav-sections-top-item-title active" data-role="collapsible" role="tab" data-collapsible="true" aria-controls="store.menu.top" aria-selected="false" aria-expanded="true" tabindex="0">
+                        <a class="nav-sections-top-item-switch" data-toggle="switch" href="#store.menu.top">
+                            Menu                    </a>
+                    </div>
+                    <div class="section-item-content nav-sections-top-item-content" id="store.menu.top" data-role="content" role="tabpanel" aria-hidden="false">
+                                <div class="switcher language switcher-language" data-ui-id="language-switcher" id="switcher-language-nav">
+            <strong class="label switcher-label"><span>Language</span></strong>
+            <div class="actions options switcher-options">
+                <div class="switcher-current" id="switcher-language-trigger-nav">
+                    <strong class="view-default">
+                        <span>VN</span>
+                    </strong>
+                </div>
+                <div class="switcher-list">
+                                                                <div class="view-en switcher-option">
+                                <a href="https://jollibee.com.vn/stores/store/redirect/___store/en/___from_store/default/uenc/aHR0cHM6Ly9qb2xsaWJlZS5jb20udm4vP19fX3N0b3JlPWVu/">
+                                    EN                            </a>
+                            </div>
+                                                                                        </div>
+            </div>
+        </div>
+    <ul id="menu" class="nav-menu ui-menu ui-widget ui-widget-content ui-corner-all" role="menu" tabindex="0" aria-activedescendant="ui-id-2">
+    <li class="level0 level-top ui-menu-item home"><a href="/">Trang Chủ</a></li>
+    <li class="level0 level-top ui-menu-item about"><a href="/ve-jollibee" class="">Về Jollibee</a></li>
+    <li class="level0 level-top parent ui-menu-item" data-item-nav="item-menu" role="presentation"><a href="/mon-moi-mon-ngon.html" aria-haspopup="true" id="ui-id-2" class="ui-corner-all" tabindex="-1" role="menuitem"><span class="ui-menu-icon ui-icon ui-icon-carat-1-e"></span>Thực đơn</a> 
+    <ul class="menu-list ui-menu ui-widget ui-widget-content ui-corner-all" role="menu" aria-expanded="false" style="display: none; top: 104.999px; left: 911px;" aria-hidden="true"><li class="ui-menu-item all-category"><a href="/mon-moi-mon-ngon.html">All </a></li>
+        <li class="level0 nav-1 category-item first level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/mon-moi-mon-ngon.html" class="level-top ui-corner-all" id="ui-id-3" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/web-12_1_1.png" class="thumbnail" width="100px"><span>Món Ngon Phải Thử</span></a></li><li class="level0 nav-2 category-item level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/ga-gion-vui-ve.html" class="level-top ui-corner-all" id="ui-id-4" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/web-05_1.png" class="thumbnail" width="100px"><span>Gà Giòn Vui Vẻ</span></a></li><li class="level0 nav-3 category-item level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/mi-y-sot-bo-bam.html" class="level-top ui-corner-all" id="ui-id-5" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/web-06.png" class="thumbnail" width="100px"><span>Mì Ý Jolly</span></a></li><li class="level0 nav-4 category-item level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/ga-sot-cay.html" class="level-top ui-corner-all" id="ui-id-6" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/web-07.png" class="thumbnail" width="100px"><span>Gà Sốt Cay</span></a></li><li class="level0 nav-5 category-item level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/burger-com.html" class="level-top ui-corner-all" id="ui-id-7" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/cat_burger_1.png" class="thumbnail" width="100px"><span>Burger/Cơm</span></a></li><li class="level0 nav-6 category-item level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/phan-an-phu.html" class="level-top ui-corner-all" id="ui-id-8" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/phananphu.png" class="thumbnail" width="100px"><span>Phần Ăn Phụ</span></a></li><li class="level0 nav-7 category-item level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/mon-trang-mieng.html" class="level-top ui-corner-all" id="ui-id-9" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/trangmieng.png" class="thumbnail" width="100px"><span>Món Tráng Miệng</span></a></li><li class="level0 nav-8 category-item last level-top ui-menu-item" role="presentation"><a href="https://jollibee.com.vn/thuc-uong.html" class="level-top ui-corner-all" id="ui-id-10" tabindex="-1" role="menuitem"><img src="https://jollibee.com.vn//media/catalog/category/thucuong.png" class="thumbnail" width="100px"><span>Thức Uống</span></a></li>    </ul>
+    <script type="text/javascript">
+        // <![CDATA[
+        require([
+            'jquery',
+            'jquery.sticky',
+            'domReady!'
+        ], function ($) {
+    
+            ////////
+            const slider = document.querySelector('#menu');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+    
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                slider.classList.remove('active');
+            });
+            slider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 3; //scroll-fast
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        });
+        // ]]>
+    </script>
+    
+    
+    </li>
+    <li class="level0 level-top ui-menu-item item-promotion"><a href="/khuyen-mai" class="">Khuyến mãi</a></li>
+    <li class="level0 level-top ui-menu-item service"><a href="/dich-vu" class="">Dịch Vụ</a></li>
+    <li class="level0 level-top ui-menu-item news"><a href="/tin-tuc">Tin Tức</a></li>
+    <li class="level0 level-top ui-menu-item store"><a href="/cua-hang">Cửa hàng</a></li>
+    <li class="level0 level-top ui-menu-item contact"><a href="/lien-he">Liên Hệ</a></li>
+    <li class="level0 level-top ui-menu-item career"><a href="https://jollibee.talent.vn/">Tuyển dụng</a></li>
+    </ul><ul class="header links"><li class="authorization-link" data-label="or">
+        <a href="#social-login-popup" class="social-login-btn" data-effect="mfp-move-from-top">
+            Đăng nhập    </a>
+    </li>
+    <li><a href="https://jollibee.com.vn/customer/account/create/" id="idudpT1hIU">Đăng ký</a></li></ul>
+    <!-- ko scope: 'location_switcher' -->
+    <div class="switcher location location__switcher js-location-popup">
+        <i class="fas fa-map-marker-alt"></i>
+        <!-- ko if: selectedLocation()  -->
+        <span class="location__text" data-bind="text: selectedLocation()">Hồ Chí Minh</span>
+        <!-- /ko -->
+        <!-- ko ifnot: selectedLocation()  --><!-- /ko -->
+    
+        <div class="location__popup jollibee-popup" style="display: none">
+            <form action="#" class="location__form" method="post" autocomplete="off" onsubmit="handleFormSubmit()" novalidate="novalidate">
+                <div class="popup--top">
+                    <div class="popup__header">
+                        <img src="https://jollibee.com.vn/static/version1742310603/frontend/Jollibee/default/vi_VN/images/logo.png" title="Logo Jollibee" alt="Logo Jollibee" width="100" height="100">
+                        <h2>Vui lòng chọn tỉnh thành</h2>
+                    </div>
+                    <div class="popup__selector">
+                        <select data-bind="options: location_provinces,
+                                optionsText: 'name',
+                                optionsValue: 'id',
+                                optionsCaption: 'Chọn tỉnh thành',
+                                value: selectedProvince,
+                                attr: {id: 'province-selector', name: 'province-selector', class: 'filter province-selector'}" data-validate="{required:true}" id="province-selector" name="province-selector" class="filter province-selector"><option value="">Chọn tỉnh thành</option><option value="1">Hồ Chí Minh</option><option value="2">Hà Nội</option><option value="30">An Giang</option><option value="10">Bà Rịa - Vũng Tàu</option><option value="28">Bắc Giang</option><option value="55">Bạc Liêu</option><option value="17">Bắc Ninh</option><option value="37">Bến Tre</option><option value="4">Bình Dương</option><option value="25">Bình Định</option><option value="23">Bình Phước</option><option value="39">Cà Mau</option><option value="12">Cần Thơ</option><option value="3">Đà Nẵng</option><option value="11">Đắk Lắk</option><option value="58">Điện Biên</option><option value="5">Đồng Nai</option><option value="47">Đồng Tháp</option><option value="22">Gia Lai</option><option value="45">Hà Nam</option><option value="46">Hà Tĩnh</option><option value="21">Hải Dương</option><option value="7">Hải Phòng</option><option value="24">Hưng Yên</option><option value="6">Khánh Hòa</option><option value="16">Kiên Giang</option><option value="49">Kon Tum</option><option value="14">Lâm Đồng</option><option value="8">Long An</option><option value="35">Nam Định</option><option value="20">Nghệ An</option><option value="41">Ninh Bình</option><option value="43">Ninh Thuận</option><option value="42">Phú Thọ</option><option value="44">Phú Yên</option><option value="50">Quảng Bình</option><option value="9">Quảng Nam</option><option value="36">Quảng Ngãi</option><option value="18">Quảng Ninh</option><option value="51">Quảng Trị</option><option value="48">Sóc Trăng</option><option value="32">Tây Ninh</option><option value="27">Thái Bình</option><option value="33">Thái Nguyên</option><option value="19">Thanh Hóa</option><option value="15">Thừa Thiên Huế</option><option value="26">Tiền Giang</option><option value="52">Trà Vinh</option><option value="57">Tuyên Quang</option><option value="40">Vĩnh Long</option><option value="31">Vĩnh Phúc</option><option value="56">Yên Bái</option></select>
+                        <select data-bind="options: districtFilterOptionsArr,
+                                optionsText: 'name',
+                                optionsValue: 'id',
+                                optionsCaption: 'Chọn quận huyện',
+                                value: selectedDistrict,
+                                attr: {id: 'district-selector', name: 'district-selector', class: 'filter district-selector'}" data-validate="{required:true}" id="district-selector" name="district-selector" class="filter district-selector"><option value="">Chọn quận huyện</option><option value="1">Bình Chánh</option><option value="2">Bình Tân</option><option value="3">Bình Thạnh</option><option value="4">Cần Giờ</option><option value="5">Củ Chi</option><option value="6">Gò Vấp</option><option value="7">Hóc Môn</option><option value="8">Nhà Bè</option><option value="9">Phú Nhuận</option><option value="10">Quận 1</option><option value="11">Quận 10</option><option value="12">Quận 11</option><option value="13">Quận 12</option><option value="14">Quận 2</option><option value="15">Quận 3</option><option value="16">Quận 4</option><option value="17">Quận 5</option><option value="18">Quận 6</option><option value="19">Quận 7</option><option value="20">Quận 8</option><option value="21">Quận 9</option><option value="22">Tân Bình</option><option value="23">Tân Phú</option><option value="24">Thủ Đức</option></select>
+                    </div>
+                </div>
+                <div class="popup--bottom">
+                    <div class="popup__action">
+                        <p>Đơn hàng tối thiểu: <span class="amount">60,000 ₫</span></p>
+                        <button type="submit" class="action primary">Xác nhận</button>
+                        <p>*Chúng tôi chưa phục vụ giao hàng tận nơi tại những khu vực nằm ngoài danh sách trên, mong Quý khách thông cảm</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /ko -->
+    
+    
+    <!-- ko scope: 'location_switcher' -->
+    <script>
+        function handleFormSubmit() {
+            var selectionProvince = document.getElementById('province-selector');
+            var indexProvince = selectionProvince.selectedIndex;
+            var selectionDistrict = document.getElementById('district-selector');
+            var indexDistrict = selectionDistrict.selectedIndex;
+                        smartech('dispatch', 'Select Location', {
+                    'city': selectionProvince.options[indexProvince].text,
+                    'district': selectionDistrict.options[indexDistrict].text,
+                });
+                }
+    </script>
+    <!-- /ko -->
+    
+    <script>
+        window.location.quoteId = '';
+    </script>
+    <div class="download-app">
+    <p style="text-align: center; font-family: 'MergeBlack', sans-serif; font-weight: 400;"><span style="color: #ffffff; display: block;">TẢI ỨNG DỤNG</span> <br><a href="https://apps.apple.com/vn/app/jollibee-vietnam/id1554984107"> <img src="https://jollibee.com.vn/media/jollibee/logo_appstore.png" alt="" width="120" height="36"> </a> <a href="https://play.google.com/store/apps/details?id=com.jollibee.loyalty"> <img src="https://jollibee.com.vn/media/jollibee/logo_playstore.png" alt="" width="120" height="36"> </a></p>
+    </div>                </div>
+                        </div>
+        </div>
+    </div><div class="column column-right">
+    <div class="plastic-tool-popup" style="display: none">
+        <div class="popup--inner">
+            <img alt="" src="https://jollibee.com.vn/static/version1742310603/frontend/Jollibee/default/vi_VN/images/plastic-tool-icon.png">
+            <p class="popup-text">
+                Để góp phần bảo vệ môi trường, bạn hãy chỉ lấy dụng cụ muỗng nĩa nhựa khi cần thiết thôi nhé!        </p>
+            <button class="popup-action action primary js-hide-plastic-tool-popup">Đồng ý</button>
+        </div>
+    </div>
+    <div class="plastic-tool-overlay" style="display: none"></div>
+    <script>
+        require([
+            'jquery'
+        ], function ($) {
+            $('.js-hide-plastic-tool-popup').click(function (e) {
+                e.preventDefault();
+                $('.plastic-tool-popup').hide();
+                $('.plastic-tool-overlay').hide();
+            });
+        });
+    </script>
+    
+    
+    <div class="header-notification-wrapper" data-bind="scope:'notification_component'">
+        <!-- ko template: getTemplate() --><!-- ko if: notificationList().length > 0  --><!-- /ko -->
+    <!-- /ko -->
+    </div>
+    
+    
+    
+    <script>
+        require([
+            'jquery'
+        ], function ($) {
+            let bellBtn = $('.notification-bell');
+            let notificationWrapper = $('.notification-data-wrapper');
+    
+            bellBtn.on('click', function () {
+                notificationWrapper.toggleClass('disappear');
+            });
+        });
+    </script>
+    <div class="notification-popup-wrapper" style="display: none">
+        <button title="Close (Esc)" type="button" class="mfp-close js-otp-popup-close notification-close-popup">
+            <span>×</span>
+        </button>
+        <div class="title"></div>
+        <div class="content">
+            <div class="text"></div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <input type="hidden" name="hideit" id="hideit" value="">
+                    <button id="notification-close-btn" type="button" title="Xác nhận" class="action submit primary">
+                        <span>Xác nhận</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="delivery-icon di"><a href="tel:19001533"><img src="https://jollibee.com.vn/media/wysiwyg/delivery-lg-rs.png" alt=""></a></div><div class="pickup-wrapper"><a class="action action-pickup" href="mon-moi-mon-ngon.html">PICK UP</a></div></div></div></header>
+</body>
+</html>

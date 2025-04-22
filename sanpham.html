@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thực Đơn B&T</title>
+  <link rel="stylesheet" href="tam.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sanpham.js">
+  <link rel="icon" href="images/tron.jpg">
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="images/tron.jpg" alt="B&T Logo">
+    </div>
+    <h1 class="slogan">B&T – ĂN XỊN GIÁ MỊN</h1>
+    <nav class="navbar">
+      <a href="trangchu.html">Trang Chủ</a>
+      <a href="sanpham.html">Sản Phẩm</a>
+      <a href="lienhe.html">Liên Hệ</a>
+      <a href="gioithieu.html">Về B&T</a>
+    </nav>
+  </header>
+  <h1 class="he">Thực Đơn B&T</h1>
+  <div class="menu">
+    <div class="menu-item">
+      <img src="images/garangioncay.jpg" alt="Gà Rán Giòn Cay">
+      <b>Gà Rán Giòn Cay</b>
+      <p>Miếng gà rán giòn rụm, vị cay đặc trưng.</p>
+      <b>45.000đ</b>
+      <button class="add-to-cart" data-name="Gà Rán Giòn Cay" data-price="45.000">Đặt Mua</button>
+    </div>
+    <div class="menu-item">
+      <img src="images/burgerga.jpg" alt="Burger Gà">
+      <b>Burger Gà</b>
+      <p>Burger gà mềm mại, ngon tuyệt vời.</p>
+      <b>55.000đ</b>
+      <button class="add-to-cart" data-name="Burger Gà" data-price="55.000">Đặt Mua</button>
+    </div>
+    <div class="menu-item">
+      <img src="images/combocomgasotcay.jpg" alt="Combo Cơm Gà Sốt Cay">
+      <b>Combo Cơm Gà Sốt Cay</b>
+      <p>Cơm trắng + gà sốt cay đậm đà + coca cola.</p>
+      <b>69.000đ</b>
+      <button class="add-to-cart" data-name="Combo Cơm Gà Sốt Cay" data-price="69.000">Đặt Mua</button>
+    </div>
+    <div class="menu-item">
+      <img src="images/khoaitaychien.jpg" alt="Khoai Tây Chiên">
+      <b>Khoai Tây Chiên</b>
+      <p>Khoai tây chiên vàng giòn, ăn là ghiền.</p>
+      <b>25.000đ</b>
+      <button class="add-to-cart" data-name="Khoai Tây Chiên" data-price="25.000">Đặt Mua</button>
+    </div>
+    <div class="menu-item">
+      <img src="images/miy.webp" alt="Mì Ý B&T">
+      <b>Mì Ý B&T</b>
+      <p>Mì Ý thơm ngon với sốt thịt đặc trưng.</p>
+      <b>39.000đ</b>
+      <button class="add-to-cart" data-name="Mì Ý" data-price="39.000">Đặt Mua</button>
+    </div>
+
+    <div class="menu-item">
+      <img src="images/phomaique.jpg" alt="Phô Mai Que">
+      <b>Phô Mai Que</b>
+      <p>Que phô mai giòn rụm, kéo sợi hấp dẫn.</p>
+      <b>30.000đ</b>
+      <button class="add-to-cart" data-name="Phô Mai Que" data-price="30.000">Đặt Mua</button>
+    </div>
+ 
+    <div class="cart-icon" onclick="viewCart()" style="position: fixed; bottom: 20px; right: 20px; cursor: pointer;">
+      <img src="images/shopping-cart.png" width="40">
+      <span class="cart-count" style="color: white; background: red; border-radius: 50%; padding: 2px 6px; position: absolute; top: -10px; right: -10px;">0</span>
+    </div>
+    <script>
+      let cart = [];
+      function updateCartCount() {
+        const count = cart.reduce((total, item) => total + item.quantity, 0);
+        document.querySelector('.cart-count').textContent = count;
+      }
+      function addToCart(name, price) {
+        const existingItem = cart.find(item => item.name === name);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({ name, price, quantity: 1 });
+        }
+        updateCartCount();
+      }
+      document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', function () {
+          const name = this.getAttribute('data-name');
+          const price = parseInt(this.getAttribute('data-price'));
+          addToCart(name, price);
+        });
+      });
+      function viewCart() {
+        if (cart.length === 0) {
+          alert('Giỏ hàng đang trống.');
+          return;
+        }
+        let cartText = 'Giỏ hàng của bạn:\n\n';
+        let total = 0;
+        cart.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          cartText += `${item.name} x${item.quantity} - ${itemTotal.toLocaleString()}đ\n`;
+          total += itemTotal;
+        });
+        cartText += `\nTổng cộng: ${total.toLocaleString()}đ`;
+        alert(cartText);
+      }
+    </script>
+</body>
+</html>
